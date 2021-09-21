@@ -19,14 +19,14 @@ export default {
       globals: { 'util': 'util', 'path': 'path' }
     },
     {
-      file: 'build/bundles/bundle.umd.js',
+      file: 'build/bundles/bundle.cjs.js',
       format: 'cjs',
       name: 'logger',
       sourcemap: true,
       globals: { 'util': 'util', 'path': 'path' }
     },
     {
-      file: 'build/bundles/bundle.umd.min.js',
+      file: 'build/bundles/bundle.cjs.min.js',
       format: 'cjs',
       plugins: [terser()],
       name: 'logger',
