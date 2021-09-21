@@ -19,7 +19,8 @@
     "declarations": "tsc -p tsconfig.json",
     "lint": "eslint --fix src/**/*.js && prettier --write src/**/*.js",
     "prepublish": "npm run build",
-    "release": "standard-version && npm run build && git push --follow-tags && npm publish"
+    "release": "standard-version && npm run build && git push --follow-tags",
+    "postrelease": "npm publish --access public"
   },
   "files": [
     "src",
