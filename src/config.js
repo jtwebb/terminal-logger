@@ -8,8 +8,7 @@ export const loggers = {
       color: 'whiteBright',
       modifiers: ['bold']
     },
-    level: logLevels.log,
-    std: process.stdout
+    level: logLevels.log
   },
   warn: {
     color: 'yellowBright',
@@ -18,8 +17,7 @@ export const loggers = {
       color: 'yellowBright',
       modifiers: ['bold']
     },
-    level: logLevels.warn,
-    std: process.stdout
+    level: logLevels.warn
   },
   info: {
     color: 'cyanBright',
@@ -28,8 +26,7 @@ export const loggers = {
       color: 'cyanBright',
       modifiers: ['bold']
     },
-    level: logLevels.info,
-    std: process.stdout
+    level: logLevels.info
   },
   debug: {
     color: 'magentaBright',
@@ -38,8 +35,7 @@ export const loggers = {
       color: 'magentaBright',
       modifiers: ['bold']
     },
-    level: logLevels.info,
-    std: process.stdout
+    level: logLevels.info
   },
   verbose: {
     color: 'blackBright',
@@ -48,8 +44,7 @@ export const loggers = {
       color: 'blackBright',
       modifiers: ['bold']
     },
-    level: logLevels.verbose,
-    std: process.stdout
+    level: logLevels.verbose
   },
   error: {
     color: 'red',
@@ -58,8 +53,7 @@ export const loggers = {
       color: 'red',
       modifiers: ['bold']
     },
-    level: logLevels.error,
-    std: process.stderr
+    level: logLevels.error
   },
   trace: {
     color: 'white',
@@ -68,8 +62,7 @@ export const loggers = {
       color: 'white',
       modifiers: ['bold']
     },
-    level: logLevels.trace,
-    std: process.stderr
+    level: logLevels.trace
   },
   success: {
     color: 'greenBright',
@@ -78,7 +71,6 @@ export const loggers = {
       color: 'greenBright',
       modifiers: ['bold']
     },
-    level: logLevels.info,
-    std: process.stdout
+    level: logLevels.info
   }
 };

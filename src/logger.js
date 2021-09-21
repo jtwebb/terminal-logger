@@ -61,10 +61,11 @@ export class Logger {
         }
 
         const label = this.createText(logMeta.label, true);
-        const formatted = `${formatWithOptions(this.formatOptions, ...args)}\n`;
+        const formatted = `${formatWithOptions(this.formatOptions, ...args)}`;
         const text = this.createText({ ...logMeta, text: formatted });
 
-        logMeta.std.write(`${label} ${text}`);
+        const log = console[logger] ? console[logger] : console.log;
+        log(`${label} ${text}`);
       };
     }
   }
@@ -72,36 +73,37 @@ export class Logger {
   error(...args) {
     const logMeta = loggers.error;
 
-    this.stackLogs(logMeta, true, ...args);
+    this.stackLogs(console.error, logMeta, true, ...args);
   }
 
   trace(...args) {
     const logMeta = loggers.trace;
     args.push(new Error());
 
-    this.stackLogs(logMeta, false, ...args);
+    this.stackLogs(console.debug, logMeta, false, ...args);
   }
 
   title(...args) {
     const width = process.stdout.columns || 80;
     const formatted = formatWithOptions(this.formatOptions, ...args);
     const willWrap = formatted.length > width - 4;
-    process.stdout.write(`\n${this.titleChar.repeat(width)}`);
+
+    console.log(`\n${this.titleChar.repeat(width)}`);
 
     if (willWrap) {
-      process.stdout.write(`${formatted}\n`);
+      console.log(`${formatted}`);
     } else {
       const whitespace = ' '.repeat(width - (formatted.length + 3));
-      process.stdout.write(`${this.titleChar} ${formatted}${whitespace}${this.titleChar}\n`);
+      console.log(`${this.titleChar} ${formatted}${whitespace}${this.titleChar}`);
     }
 
-    process.stdout.write(this.titleChar.repeat(width));
+    console.log(this.titleChar.repeat(width));
   }
 
   /**
    * @private
    */
-  stackLogs(logMeta, isError, ...args) {
+  stackLogs(log, logMeta, isError, ...args) {
     if (logMeta.level > this.logLevel) {
       return;
     }
@@ -115,9 +117,9 @@ export class Logger {
 
     const formatted = formatWithOptions(this.formatOptions, ..._args);
     const label = this.createText(logMeta.label, true);
-    const text = this.createText({ ...logMeta, text: `${formatted}\n` });
+    const text = this.createText({ ...logMeta, text: `${formatted}` });
 
-    logMeta.std.write(`${label} ${text}`);
+    log(`${label} ${text}`);
   }
 
   /**
