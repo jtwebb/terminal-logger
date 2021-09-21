@@ -1,6 +1,6 @@
 {
   "name": "@jtwebb/logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node console logger",
   "license": "MIT",
   "main": "./src/index.js",
@@ -19,7 +19,7 @@
     "declarations": "tsc -p tsconfig.json",
     "lint": "eslint --fix src/**/*.js && prettier --write src/**/*.js",
     "prepublish": "npm run build",
-    "release": "BREAK not ready to work--- standard-version && npm run build && git push --follow-tags && npm publish"
+    "release": "standard-version && npm run build && git push --follow-tags && npm publish"
   },
   "files": [
     "src",
@@ -62,7 +62,9 @@
           [
             "@babel/env",
             {
-              "targets": { "node": "14" }
+              "targets": {
+                "node": "14"
+              }
             }
           ]
         ]
