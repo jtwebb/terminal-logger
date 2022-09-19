@@ -36,13 +36,11 @@
       "sourceType": "module"
     }
   },
-  "prettier": "@jtwebb/prettier",
   "devDependencies": {
     "@babel/cli": "^7.15.4",
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "@jtwebb/eslint-config": "^1.0.0",
-    "@jtwebb/prettier": "^1.0.1",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "eslint": "^7.32.0",
